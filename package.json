@@ -11,7 +11,7 @@
     "build": "cd worksheet_3 && npm run build",
     "install-worksheet_3": "cd worksheet_3 && npm install",
     "heroku-postbuild": "npm run install-worksheet_3 && npm run build",
-    "server": "nodemon server.js",
+    "server": "nodemon index.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix worksheet_3\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix worksheet_3\""
 
