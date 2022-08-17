@@ -6,7 +6,15 @@
   "scripts": {
     "start": "node app.js",
     "app": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+    "build": "cd worksheet_3 && npm run build",
+    "install-worksheet_3": "cd worksheet_3 && npm install",
+    "heroku-postbuild": "npm run install-worksheet_3 && npm run build",
+    "server": "nodemon server.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix worksheet_3\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix worksheet_3\""
+
   },
   "repository": {
     "type": "git",

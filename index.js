@@ -21,7 +21,7 @@ mongoose
  .then(() => console.log("MongoDB has been connected"))
  .catch((err) => console.log(err));
 
- 
+
 
 //middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,3 +37,19 @@ app.listen(PORT, () => {
 });
 
 
+// Accessing the path module
+const path = require("path");
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./worksheet_3/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./worksheet_3/build", "index.html"));
+});
+
+
+app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`);
+  });
+
+  
